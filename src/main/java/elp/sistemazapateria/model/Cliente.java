@@ -1,3 +1,4 @@
+
 package elp.sistemazapateria.model;
 
 import jakarta.persistence.*;
