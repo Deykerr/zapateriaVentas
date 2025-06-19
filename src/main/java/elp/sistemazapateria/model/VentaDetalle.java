@@ -1,25 +1,23 @@
 package elp.sistemazapateria.model;
 
+import jakarta.persistence.*;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-
+@Entity
+@Table (name = "venta_Detalle")
 public class VentaDetalle {
 
 	@EmbeddedId
-	private ComprasProductoPK id;
+	private VentaDetallePK id;
 	
 	private Integer cantidad;
 	private Double total;
 	private Boolean estado;
 	@ManyToOne
-	@MapsId("idCompra")
-	@JoinColumn(name = "id_compra", insertable = false, updatable = false)
-	private Compra compra;
+	@MapsId("idVenta")
+	@JoinColumn(name = "id_venta", insertable = false, updatable = false)
+	private Venta venta;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_producto", insertable = false, updatable = false)
-	private Producto producto;
+	@JoinColumn(name = "id_calzado", insertable = false, updatable = false)
+	private Calzado calzado;
 }
