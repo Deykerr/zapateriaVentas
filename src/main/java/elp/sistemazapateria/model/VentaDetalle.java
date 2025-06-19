@@ -1,9 +1,13 @@
 package elp.sistemazapateria.model;
 
+
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.ToString;
 
 @Entity
 @Table (name = "venta_Detalle")
+@Data
 public class VentaDetalle {
 
 	@EmbeddedId
@@ -15,9 +19,13 @@ public class VentaDetalle {
 	@ManyToOne
 	@MapsId("idVenta")
 	@JoinColumn(name = "id_venta", insertable = false, updatable = false)
+	@ToString.Exclude 
 	private Venta venta;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_calzado", insertable = false, updatable = false)
+	@ToString.Exclude 
 	private Calzado calzado;
 }
+
+
