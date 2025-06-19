@@ -1,5 +1,14 @@
 package elp.sistemazapateria.repository;
 
-public class CalzadoRepository {
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import elp.sistemazapateria.model.Calzado;
+
+
+
+@Repository
+public class CalzadoRepository extends JpaRepository<Calzado, Integer>{
 
 }
