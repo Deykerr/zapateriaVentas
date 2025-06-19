@@ -6,11 +6,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClienteRequest {
-
 	private String nombre;
 	private String apellidos;
 	private Long celular;
-	private String direccion;
-	private String correoElectronico;
-
+	private String correo;
+	
 }
+
