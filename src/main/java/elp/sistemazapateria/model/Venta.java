@@ -15,9 +15,11 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 @Entity
 @Table(name = "ventas")
 @Data
+
 public class Venta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +27,14 @@ public class Venta {
 	private Integer idVenta;
 	
 	@Column(name = "id_cliente")
-	private String idCliente;
+	private Long idCliente;
 	
 	private LocalDateTime fecha;
 	
 	@Column(name = "metodo_pago")
 	private String metodoPago;
+	
+	private String estado;
 	
 	
 	@ManyToOne
@@ -38,5 +42,6 @@ public class Venta {
 	private Cliente cliente;
 	
 	@OneToMany(mappedBy = "venta", cascade = {CascadeType.ALL})
+	@ToString.Exclude // Añadir esto
 	private List<VentaDetalle> calzados;
 }
