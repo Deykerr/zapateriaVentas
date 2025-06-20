@@ -18,9 +18,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.bezkoder.spring.login.security.jwt.AuthEntryPointJwt;
-import com.bezkoder.spring.login.security.jwt.AuthTokenFilter;
-import com.bezkoder.spring.login.security.services.UserDetailsServiceImpl;
+import elp.sistemazapateria.security.jwt.AuthEntryPointJwt;
+import elp.sistemazapateria.security.jwt.AuthTokenFilter;
+import elp.sistemazapateria.security.services.UserDetailsServiceImpl;
+
+
 
 @Configuration
 //@EnableWebSecurity

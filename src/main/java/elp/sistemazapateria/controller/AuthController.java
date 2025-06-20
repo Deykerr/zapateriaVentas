@@ -22,17 +22,19 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bezkoder.spring.login.models.ERole;
-import com.bezkoder.spring.login.models.Role;
-import com.bezkoder.spring.login.models.User;
-import com.bezkoder.spring.login.payload.request.LoginRequest;
-import com.bezkoder.spring.login.payload.request.SignupRequest;
-import com.bezkoder.spring.login.payload.response.UserInfoResponse;
-import com.bezkoder.spring.login.payload.response.MessageResponse;
-import com.bezkoder.spring.login.repository.RoleRepository;
-import com.bezkoder.spring.login.repository.UserRepository;
-import com.bezkoder.spring.login.security.jwt.JwtUtils;
-import com.bezkoder.spring.login.security.services.UserDetailsImpl;
+import elp.sistemazapateria.model.ERole;
+import elp.sistemazapateria.model.Role;
+import elp.sistemazapateria.model.User;
+import elp.sistemazapateria.payload.request.LoginRequest;
+import elp.sistemazapateria.payload.request.SignupRequest;
+import elp.sistemazapateria.payload.response.MessageResponse;
+import elp.sistemazapateria.payload.response.UserInfoResponse;
+import elp.sistemazapateria.repository.RoleRepository;
+import elp.sistemazapateria.repository.UserRepository;
+import elp.sistemazapateria.security.jwt.JwtUtils;
+import elp.sistemazapateria.security.services.UserDetailsImpl;
+
+
 
 //for Angular Client (withCredentials)
 //@CrossOrigin(origins = "http://localhost:8081", maxAge = 3600, allowCredentials="true")
