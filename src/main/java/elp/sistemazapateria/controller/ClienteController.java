@@ -20,7 +20,7 @@ import elp.sistemazapateria.service.ClienteService;
 
 
 @RestController
-@RequestMapping("v1/clientes")
+@RequestMapping("/api/clientes")
 public class ClienteController {
     @Autowired
     ClienteService clienteService;
