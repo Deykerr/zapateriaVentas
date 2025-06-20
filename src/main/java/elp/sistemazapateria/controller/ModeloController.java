@@ -19,7 +19,7 @@ import elp.sistemazapateria.service.ModeloService;
 
 
 @RestController
-@RequestMapping("v1/modelos") // URI base para modelos
+@RequestMapping("/api/modelos") // URI base para modelos
 public class ModeloController {
 
 	@Autowired

@@ -18,7 +18,7 @@ import elp.sistemazapateria.controller.dto.VentaResponse;
 import elp.sistemazapateria.service.VentaService;
 
 @RestController
-@RequestMapping("v1/ventas") // URI base para ventas
+@RequestMapping("/api/ventas") // URI base para ventas
 public class VentaController {
 	@Autowired
 	private VentaService ventaService;
