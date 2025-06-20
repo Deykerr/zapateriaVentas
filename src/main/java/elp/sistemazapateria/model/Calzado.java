@@ -1,13 +1,15 @@
 package elp.sistemazapateria.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Table(name = "calzados")
-//@NoArgsConstructor
+@NoArgsConstructor
+@Data
 public class Calzado {
 
     @Id
@@ -15,19 +17,22 @@ public class Calzado {
     @Column(name="id_calzado")
     private Integer idCalzado;
 
-    private String nombre;
+    private String marca;
 
-    @Column(name = "id_modelo", insertable = false, updatable = false) // FK gestionada por la relación @ManyToOne
-    private Integer idmodelo; // Campo que guarda el ID de la categoría/modelo
+    @Column(name = "id_modelo")
+    private Integer idModelo; 
 
     @Column(name = "precio_venta")
     private Double precioVenta;
 
     @Column(name = "cantidad_stock")
     private Integer cantidadStock;
+    
+    private Boolean estado;
 
-    // Recuperar a que categoria/modelo pertenece un calzado
+    
     @ManyToOne
     @JoinColumn(name = "id_modelo", insertable = false, updatable = false)
-   // private Modelo modelo;
+    private Modelo modelo;
 }
+
