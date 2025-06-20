@@ -1,9 +1,11 @@
 package elp.sistemazapateria.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table (name = "venta_Detalle")
+@Data
 public class VentaDetalle {
 
 	@EmbeddedId
