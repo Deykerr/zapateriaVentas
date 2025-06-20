@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @Entity
 @Table (name = "venta_Detalle")
-@Data
+@Data //se agrega el @Data
 public class VentaDetalle {
 
 	@EmbeddedId
