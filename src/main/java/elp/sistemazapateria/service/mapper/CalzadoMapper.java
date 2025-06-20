@@ -1,51 +1,74 @@
 package elp.sistemazapateria.service.mapper;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.springframework.stereotype.Component;
+
 import elp.sistemazapateria.controller.dto.CalzadoRequest;
 import elp.sistemazapateria.controller.dto.CalzadoResponse;
 import elp.sistemazapateria.model.Calzado;
 
-import org.springframework.stereotype.Component; // Para que Spring pueda inyectarlo
-
-import java.util.Collection;
-import java.util.stream.Collectors;
-
-@Component // Anotación para que Spring la reconozca como un componente y pueda ser inyectada
+@Component
 public class CalzadoMapper {
+	
+    public Collection<CalzadoResponse> toListCalzadoToCalzadoResponse(Collection<Calzado> listCalzado) {
+        Collection<CalzadoResponse> listCalzadoResponses = new ArrayList<>();
 
-    // Método para convertir una entidad Calzado a CalzadoResponse
+        if (listCalzado != null && !listCalzado.isEmpty()) {
+            for (Calzado calzado : listCalzado) {
+               
+                listCalzadoResponses.add(toCalzadoToCalzadoResponse(calzado));
+            }
+        }
+        return listCalzadoResponses;
+    }
+
+    
     public CalzadoResponse toCalzadoToCalzadoResponse(Calzado calzado) {
-        if (calzado == null) {
-            return null;
+        CalzadoResponse calzadoResponse = new CalzadoResponse();
+        if (calzado != null) {
+            calzadoResponse.setIdCalzado(calzado.getIdCalzado());
+            calzadoResponse.setMarca(calzado.getMarca());
+            calzadoResponse.setIdModelo(calzado.getIdModelo());
+            calzadoResponse.setPrecioVenta(calzado.getPrecioVenta());
+            calzadoResponse.setCantidadStock(calzado.getCantidadStock());
+            calzadoResponse.setEstado(calzado.getEstado());
+
+           
+            if (calzado.getModelo() != null) {
+                calzadoResponse.setDescripcionModelo(calzado.getModelo().getDescripcion());
+            }
         }
-        CalzadoResponse response = new CalzadoResponse();
-        response.setIdCalzado(calzado.getIdCalzado());
-        response.setNombre(calzado.getIdNombre());
-        response.setIdmodelo(calzado.getIdmodelo());
-        response.setPrecioVenta(calzado.getPrecioVenta());
-        response.setCantidadStock(calzado.getCantidadStock());
-        return response;
+        return calzadoResponse;
     }
 
-    // Método para convertir una colección de entidades Calzado a una colección de CalzadoResponse
-    public Collection<CalzadoResponse> toListCalzadoToCalzadoResponse(Collection<Calzado> calzados) {
-        if (calzados == null) {
-            return null;
-        }
-        return calzados.stream()
-                .map(this::toCalzadoToCalzadoResponse)
-                .collect(Collectors.toList());
-    }
-
-    // Opcional: Método para convertir CalzadoRequest a Calzado (útil para save/update, pero a menudo se hace directamente en el servicio)
-    public Calzado toCalzadoRequestToCalzado(CalzadoRequest request) {
+   
+    public Calzado toCalzado(CalzadoRequest request) {
         if (request == null) {
             return null;
         }
         Calzado calzado = new Calzado();
-        calzado.setNombre(request.getNombre());
-        calzado.setIdmodelo(request.getIdmodelo());
+        calzado.setMarca(request.getMarca());
+        calzado.setIdModelo(request.getIdModelo()); 
         calzado.setPrecioVenta(request.getPrecioVenta());
         calzado.setCantidadStock(request.getCantidadStock());
+        calzado.setEstado(request.getEstado());
+     
         return calzado;
+    }
+
+  
+    
+    public void updateCalzadoFromDto(CalzadoRequest request, Calzado calzado) {
+        if (request == null || calzado == null) {
+            return;
+        }
+        calzado.setMarca(request.getMarca());
+        calzado.setIdModelo(request.getIdModelo()); 
+        calzado.setPrecioVenta(request.getPrecioVenta());
+        calzado.setCantidadStock(request.getCantidadStock());
+        calzado.setEstado(request.getEstado());
+       
     }
 }

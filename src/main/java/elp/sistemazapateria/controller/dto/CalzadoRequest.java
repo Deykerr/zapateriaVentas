@@ -1,23 +1,19 @@
 package elp.sistemazapateria.controller.dto;
 
-
 import lombok.Getter;
 
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter // Genera automáticamente los métodos getter
+@Setter // Genera automáticamente los métodos setter
 
 public class CalzadoRequest {
+	private String marca;
+	private Integer idModelo; // Referencia al ID del Modelo
 
-  
-    private String nombre;
+	private Double precioVenta; // Coincide con el tipo de la entidad
+	private Integer cantidadStock; // Coincide con el tipo de la entidad
 
- 
-    private Integer idmodelo; 
+	private Boolean estado;
 
- 
-    private Double precioVenta; 
-
-    private Integer cantidadStock;
-    }
+}
