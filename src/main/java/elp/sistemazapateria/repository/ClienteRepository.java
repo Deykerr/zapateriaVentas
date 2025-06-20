@@ -1,13 +1,11 @@
 package elp.sistemazapateria.repository;
 
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import elp.sistemazapateria.model.Venta;
+import elp.sistemazapateria.model.Cliente;
 
 @Repository
-public interface VentaRepository extends JpaRepository<Venta, Integer> {
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 }
-
